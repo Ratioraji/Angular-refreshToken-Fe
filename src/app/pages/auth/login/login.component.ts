@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
   login() {
     console.log(this.email, this.password);
     if (this.email.invalid || this.password.invalid) {
+      this.loginError = true;
       return;
     }
     this.isLoading = true;
