@@ -12,7 +12,6 @@ import { CredentialsService } from './credentials.service';
 export class TokenInterceptor implements HttpInterceptor {
 
     refreshTokenInProgress = false;
-
     tokenRefreshedSource = new Subject();
     tokenRefreshed$ = this.tokenRefreshedSource.asObservable();
 
