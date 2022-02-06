@@ -4,7 +4,10 @@ import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { CredentialsService } from 'src/app/services/credentials.service';
 import { AuthenticationService } from '../../../services/auth.services';
-
+interface Alert {
+  type: string;
+  message: string;
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,6 +17,7 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   loginForm: FormGroup;
   loginErrorMessage: string;
+  loginError = false;
 
   constructor(
     private authService: AuthenticationService,
@@ -65,21 +69,20 @@ export class LoginComponent implements OnInit {
             // this.router.navigate(["/dashboard/alpha"]);
 
           } else {
-            this.loginErrorMessage = response.message;
-            this.isLoading = false;
+          this.loginError = true;
+          this.loginErrorMessage = response.message;
+          this.isLoading = false;
           }
         },
         error => {
           this.loginErrorMessage = error.message;
+          this.loginError = true;
           this.isLoading = false;
         }
       );
   }
   setLoginState(): void {
   }
-  // }
-  // login() {
-  //   this.router.navigate(['/dashboard']);
-  // }
+
 }
 

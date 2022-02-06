@@ -57,7 +57,7 @@ const routes: Routes = [
     })
   ],
   // providers: [AppPreloader],
-  declarations: [],
+  declarations: [MainComponent],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
