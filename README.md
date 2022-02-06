@@ -2,6 +2,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
 
+## Login
+
+- Email :  Any Valid email address eg : demo@gmail.com
+- password : use any password ( min of 3 characters )
+
+## Approach
+
+- Tokens are set to expire after every 10 secs from the backend
+- On making request to /employees with an expired token
+    - The /token endpoint is called via the interceptor and new token is set
+    - /employees endpoint is re-called and the necessary response is received
+    - effect of interceptor can be found in the console
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -25,15 +37,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## Login
-
-- Email :  Any Valid email address eg : demo@gmail.com
-- password : use any password ( min of 3 characters )
-
-## Approach
-
-- Tokens are set to expire after every 10 secs from the backend
-- On making request to /employees with an expired token
-    - The /token endpoint is called via the interceptor and new token is set
-    - /employees endpoint is re-called and the necessary response is received
