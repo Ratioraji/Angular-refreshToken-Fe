@@ -11,7 +11,7 @@ import { DashboardService } from 'src/app/services/dashboard.services';
 })
 export class DashboardComponent implements OnInit {
   errored: boolean;
-  isLoading: boolean;
+  isLoading = true;
   emps: Array<any>;
 
   constructor(
